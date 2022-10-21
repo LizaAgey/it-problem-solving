@@ -1,7 +1,8 @@
 // JavaScript Algorithms and Data Structures FREECODECAMP
 
 //-----TASK
-//The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+//The function should check if name is an actual contact's firstName and the given property (prop) is
+// a property of that contact.
 // If both are true, then return the "value" of that property.
 // Setup
 const contacts = [
@@ -53,3 +54,34 @@ function lookUpProfile(name, prop) {
 }
 
 lookUpProfile("Akira", "likes");
+
+//-----TASK
+// Replace the two assignments with an equivalent destructuring assignment.
+// It should still assign the variables today and tomorrow the values of today and tomorrow
+// from the HIGH_TEMPERATURES object.
+const HIGH_TEMPERATURES = {
+    yesterday: 75,
+    today: 77,
+    tomorrow: 80
+};
+
+const {today, tomorrow}  = HIGH_TEMPERATURES;
+
+//Option 2
+
+const HIGH_TEMPERATURES_SECOND = {
+    yesterday: 75,
+    today: 77,
+    tomorrow: 80
+};
+
+const {today: highToday, tomorrow: highTomorrow} = HIGH_TEMPERATURES_SECOND;
+
+//Option 3
+const LOCAL_FORECAST = {
+    yesterday: { low: 61, high: 75 },
+    today: { low: 64, high: 77 },
+    tomorrow: { low: 68, high: 80 }
+};
+
+const {today: {low: lowToday, high: highToday}} = LOCAL_FORECAST

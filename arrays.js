@@ -83,3 +83,41 @@ function removeFirstTwo(list) {
     return arr;
 }
 const arr = removeFirstTwo(source);
+
+// CODEWARS
+
+//-----TASK
+// Simple, given a string of words, return the length of the shortest word(s).
+// String will never be empty and you do not need to account for different data types.
+
+function findShort(s){
+    let arrayLengths =  s.split(" ").map(element=> element.length)
+    return Math.min(...arrayLengths)
+}
+
+//-----TASK
+// Return the number (count) of vowels in the given string.
+// We will consider a, e, i, o, u as vowels for this Kata (but not y).
+// The input string will only consist of lower case letters and/or spaces.
+
+function getCount(str) {
+    let vowels  = ["a", "e", "i", "o", "u"]
+    str = str.replace(/\s+/g, '')
+    let arraySymbols = str.split("")
+
+    let count = 0
+    arraySymbols.forEach(element => {
+        if(element === vowels[0]){ ++count}
+        if(element === vowels[1]){ ++count}
+        if(element === vowels[2]){ ++count}
+        if(element === vowels[3]){ ++count}
+        if(element === vowels[4]){ ++count}
+
+    })
+    return count
+
+}
+// -----from Best practice:
+//function getCount(str) {
+//  return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
+// }

@@ -70,18 +70,20 @@ console.log(arr2);
 let a = 8, b = 6;
 [a, b] = [b, a]
 
-const [d, f,,, k] = [1, 2, 3, 4, 5, 6];
+const [d, f, , , k] = [1, 2, 3, 4, 5, 6];
 
 //-----TASK
 // Use destructuring assignment with the rest parameter to perform an effective Array.prototype.slice()
 // so that arr is a sub-array of the original array source with the first two elements omitted.
-const source = [1,2,3,4,5,6,7,8,9,10];
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 function removeFirstTwo(list) {
 
-    const [a,b, ...arr] = list;
+    const [a, b, ...arr] = list;
 
     return arr;
 }
+
 const arr = removeFirstTwo(source);
 
 // CODEWARS
@@ -90,8 +92,8 @@ const arr = removeFirstTwo(source);
 // Simple, given a string of words, return the length of the shortest word(s).
 // String will never be empty and you do not need to account for different data types.
 
-function findShort(s){
-    let arrayLengths =  s.split(" ").map(element=> element.length)
+function findShort(s) {
+    let arrayLengths = s.split(" ").map(element => element.length)
     return Math.min(...arrayLengths)
 }
 
@@ -101,23 +103,64 @@ function findShort(s){
 // The input string will only consist of lower case letters and/or spaces.
 
 function getCount(str) {
-    let vowels  = ["a", "e", "i", "o", "u"]
+    let vowels = ["a", "e", "i", "o", "u"]
     str = str.replace(/\s+/g, '')
     let arraySymbols = str.split("")
 
     let count = 0
     arraySymbols.forEach(element => {
-        if(element === vowels[0]){ ++count}
-        if(element === vowels[1]){ ++count}
-        if(element === vowels[2]){ ++count}
-        if(element === vowels[3]){ ++count}
-        if(element === vowels[4]){ ++count}
+        if (element === vowels[0]) {
+            ++count
+        }
+        if (element === vowels[1]) {
+            ++count
+        }
+        if (element === vowels[2]) {
+            ++count
+        }
+        if (element === vowels[3]) {
+            ++count
+        }
+        if (element === vowels[4]) {
+            ++count
+        }
 
     })
     return count
 
 }
+
 // -----from Best practice:
 //function getCount(str) {
 //  return str.split('').filter(c => "aeiouAEIOU".includes(c)).length;
 // }
+
+//-----TASK
+// Complete the function that accepts a string parameter, and reverses each word in the string.
+// All spaces in the string should be retained.
+
+function reverseWords(str) {
+    // let splitStr = str.split(" ")
+    // let reversedSplitStr = splitStr.map(word => word.split("").reverse().join(""))
+    // return reversedSplitStr.join(" ")
+
+    return str.split(" ").map(word => word.split("").reverse().join("")).join(" ")
+}
+
+//-----TASK
+//Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+// or example (Input --> Output):
+// 39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+// 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+// 4 --> 0 (because 4 is already a one-digit number)
+
+function persistence(num) {
+    let arrNums = num.toString().split("").map(Number)
+    let count = 0
+    while (arrNums.length > 1) {
+        count++
+        arrNums = arrNums.reduce((a, b) => a * b, 1).toString().split("").map(Number)
+    }
+    return count
+}
+

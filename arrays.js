@@ -164,3 +164,13 @@ function persistence(num) {
     return count
 }
 
+//-----TASK
+//Move seros to the end
+function moveZeros(arr) {
+    let zeros = arr.filter(el=> el === 0)
+    let notZeros = arr.filter(el=> el !== 0)
+    return [...notZeros, ...zeros]
+}
+
+console.log(1, moveZeros([false,1,0,1,2,0,1,3,"a"]))
+
